@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.maven.apache.org/maven2/'}
+}
+
+group = 'org.example'
+version = '1.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.knowm.xchart:xchart:3.8.0'
+    implementation 'org.jetbrains:annotations:24.0.0'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

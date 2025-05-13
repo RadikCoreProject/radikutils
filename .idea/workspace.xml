@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="radikutils" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Exception" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2vU6Uomv8VqkZWK0VZAYl7rF04U" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Gradle.radikutils [:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alesh\OneDrive\Рабочий стол\Алёшин Иван (2)\RADIK\radikutils\src\main\java\org\radikutils\plets" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.radikutils.Main" />
+      <module name="radikutils.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.radikutils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="" />
+      <created>1744187327695</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744187327695</updated>
+      <workItem from="1744187328776" duration="98000" />
+      <workItem from="1744187558502" duration="368000" />
+      <workItem from="1745390527813" duration="2382000" />
+      <workItem from="1745436208216" duration="4000" />
+      <workItem from="1746514958027" duration="1106000" />
+      <workItem from="1746519649946" duration="117000" />
+      <workItem from="1746595849368" duration="4229000" />
+      <workItem from="1746600524166" duration="1992000" />
+      <workItem from="1746602543761" duration="188000" />
+      <workItem from="1746603082455" duration="1859000" />
+      <workItem from="1746605825601" duration="189000" />
+      <workItem from="1746606027510" duration="1237000" />
+      <workItem from="1746612528980" duration="696000" />
+      <workItem from="1746629138582" duration="2623000" />
+      <workItem from="1746638465958" duration="926000" />
+      <workItem from="1746729728585" duration="1502000" />
+      <workItem from="1746785251632" duration="8627000" />
+      <workItem from="1746794574568" duration="2930000" />
+      <workItem from="1746902222145" duration="2576000" />
+      <workItem from="1746914400690" duration="7449000" />
+      <workItem from="1746959969954" duration="10311000" />
+      <workItem from="1746990126844" duration="5000" />
+      <workItem from="1747028837976" duration="4943000" />
+      <workItem from="1747042745072" duration="2370000" />
+      <workItem from="1747079608765" duration="1693000" />
+      <workItem from="1747115307415" duration="1356000" />
+      <workItem from="1747117729766" duration="1375000" />
+      <workItem from="1747140715759" duration="3042000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
