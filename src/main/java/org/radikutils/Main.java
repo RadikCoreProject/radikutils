@@ -13,7 +13,7 @@ import static org.radikutils.func.FFT.ifft;
 
 public class Main {
     private static final long DOTS = (long) Math.pow(2, 10);
-    private static final Duplet<Integer, Long> CENS = new Duplet<>(1, DOTS);
+    private static final Duplet<Integer, Long> CENS = new Duplet<>(1, DOTS / 2);
 
     public static void main(String[] args) {
         DrawingBase ch1 = new DrawingBase();
@@ -33,19 +33,18 @@ public class Main {
         ch2.setLegend("X", "Y");
 
         List<Complex> output = fft(input);
-//        output = ifft(output);
 
         ArrayList<Double> xData;
         ArrayList<Double> yData;
 
-        xData = new ArrayList<>();
-        yData = new ArrayList<>();
-        for (int i = CENS.getType(); i < CENS.getParametrize(); i++) {
-            xData.add((double) i);
-            yData.add(func(i));
-        }
-        ch1.custom(xData, yData, "y=sin(x)");
-        ch1.runChart();
+//        xData = new ArrayList<>();
+//        yData = new ArrayList<>();
+//        for (int i = CENS.getType(); i < CENS.getParametrize(); i++) {
+//            xData.add((double) i);
+//            yData.add(func(i));
+//        }
+//        ch1.custom(xData, yData, "y=sin(x)");
+//        ch1.runChart();
 
         xData = new ArrayList<>();
         yData = new ArrayList<>();
@@ -64,7 +63,7 @@ public class Main {
     }
 
     private static double func(double i) {
-        return Math.random();
+        return i % 200;
     }
 
     public static double hanningWindow(int i, int DOTS) {

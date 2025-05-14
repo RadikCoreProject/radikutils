@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="nit">
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Based.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Bin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Bin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Nnet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Nnet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,18 +51,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "RadikCoreProject"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RadikCoreProject&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/RadikCoreProject/radikutils.git",
-    "accountId": "244905e4-c678-4304-965e-a3406f3d9775"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RadikCoreProject/radikutils.git&quot;,
+    &quot;accountId&quot;: &quot;244905e4-c678-4304-965e-a3406f3d9775&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -67,28 +72,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Gradle.radikutils [:Test.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.Main.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor": "Run",
-    "Repository.Attach.Annotations": "true",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Gradle.radikutils [:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alesh\OneDrive\Рабочий стол\Алёшин Иван (2)\RADIK\radikutils\src\main\java\org\radikutils\plets" />
@@ -149,7 +155,9 @@
       <workItem from="1747079608765" duration="1693000" />
       <workItem from="1747115307415" duration="1356000" />
       <workItem from="1747117729766" duration="1375000" />
-      <workItem from="1747140715759" duration="3961000" />
+      <workItem from="1747140715759" duration="4892000" />
+      <workItem from="1747203023729" duration="3539000" />
+      <workItem from="1747208389175" duration="2107000" />
     </task>
     <task id="LOCAL-00001" summary="nit">
       <option name="closed" value="true" />
@@ -159,13 +167,36 @@
       <option name="project" value="LOCAL" />
       <updated>1747150477042</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="nit">
+      <option name="closed" value="true" />
+      <created>1747150965814</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747150965814</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -177,6 +208,13 @@
                     <value>
                       <list>
                         <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
                       </list>
                     </value>
                   </entry>

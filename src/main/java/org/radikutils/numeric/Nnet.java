@@ -10,4 +10,7 @@ public interface Nnet {
     Nnet toBinary();
 
     Nnet cast(int base);
+
+    @Override
+    String toString();
 }
