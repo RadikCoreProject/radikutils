@@ -6,7 +6,7 @@ public class Based extends Number implements Nnet {
     public Based(int base, long decimal) {
         super();
         this.base = base;
-        this.num = StaticBases.ten2base(decimal, base);
+//        this.num = StaticBases.ten2base(decimal, base);
     }
 
     public Based(int base, String decimal) {
@@ -16,7 +16,7 @@ public class Based extends Number implements Nnet {
     }
 
     private final int base;
-    private final String num;
+    private final String num = "";
 
     @Override
     public int intValue() {
@@ -50,5 +50,6 @@ public class Based extends Number implements Nnet {
 
     @Override
     public String toString() {
+        return num;
     }
 }

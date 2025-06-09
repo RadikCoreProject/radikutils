@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Based.java" afterDir="false" />
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="bases">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Based.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Based.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Bin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Bin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Nnet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Nnet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +156,24 @@
       <workItem from="1747140715759" duration="4892000" />
       <workItem from="1747203023729" duration="3539000" />
       <workItem from="1747208389175" duration="2107000" />
+      <workItem from="1747210523568" duration="35000" />
+      <workItem from="1747327290606" duration="8317000" />
+      <workItem from="1747501266516" duration="10000" />
+      <workItem from="1747677215629" duration="3849000" />
+      <workItem from="1747682816067" duration="602000" />
+      <workItem from="1748196873428" duration="9000" />
+      <workItem from="1748196899721" duration="16000" />
+      <workItem from="1748767730371" duration="3365000" />
+      <workItem from="1748799550796" duration="487000" />
+      <workItem from="1748800359618" duration="4195000" />
+      <workItem from="1748856676295" duration="1382000" />
+      <workItem from="1748883405179" duration="9000" />
+      <workItem from="1749050557893" duration="6433000" />
+      <workItem from="1749063962695" duration="612000" />
+      <workItem from="1749069837004" duration="4613000" />
+      <workItem from="1749124492915" duration="5000" />
+      <workItem from="1749284019016" duration="4589000" />
+      <workItem from="1749393925766" duration="5352000" />
     </task>
     <task id="LOCAL-00001" summary="nit">
       <option name="closed" value="true" />
@@ -175,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747150965814</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="bases">
+      <option name="closed" value="true" />
+      <created>1747210544402</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747210544402</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +252,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="nit" />
-    <option name="LAST_COMMIT_MESSAGE" value="nit" />
+    <MESSAGE value="bases" />
+    <option name="LAST_COMMIT_MESSAGE" value="bases" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

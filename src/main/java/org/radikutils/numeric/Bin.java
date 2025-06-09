@@ -65,7 +65,7 @@ public class Bin extends Number implements Nnet {
                 s.add(this.bin.substring((int) (l - (s.size() + 1) * v), (int) (l - s.size() * v)));
             }
             s.reversed();
-            return String.join(" ", s);
+//            return String.join(" ", s);
         }
         return this;
     }
