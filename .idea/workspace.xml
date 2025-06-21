@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="bases">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Based.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Based.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Bin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/Bin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,6 +72,7 @@
   &quot;keyToString&quot;: {
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
     &quot;Gradle.radikutils [:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.BinaryConverterApp.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.radikutils [:org.radikutils.Main.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
@@ -174,6 +173,10 @@
       <workItem from="1749124492915" duration="5000" />
       <workItem from="1749284019016" duration="4589000" />
       <workItem from="1749393925766" duration="5352000" />
+      <workItem from="1749475467226" duration="105000" />
+      <workItem from="1750184936373" duration="8464000" />
+      <workItem from="1750253380925" duration="417000" />
+      <workItem from="1750506439987" duration="328000" />
     </task>
     <task id="LOCAL-00001" summary="nit">
       <option name="closed" value="true" />
@@ -199,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747210544402</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="bases">
+      <option name="closed" value="true" />
+      <created>1749475568996</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749475568996</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
