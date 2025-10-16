@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="fix test">
-      <change afterPath="$PROJECT_DIR$/src/test/java/GeckoGayInteger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/Gecko.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/Holes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/MarkusToy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/Nytik.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/Petuh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/Sosun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/SpermCargo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/SpermaLiter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/Spermoglotatel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gecko/TearLiter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tetetete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/HTMLCatcherV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Sesc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +44,8 @@
       <list>
         <option value="Exception" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -73,6 +64,9 @@
     &quot;accountId&quot;: &quot;f8b9b069-0ff7-4c17-9f04-f5168832c16f&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -81,37 +75,67 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Gradle.radikutils [:Test.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.radikutils [:org.radikutils.BinaryConverterApp.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.radikutils [:org.radikutils.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/radik/LINUX/prog/RADIK/radikutils&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.radikutils [:Sesc.main()].executor": "Run",
+    "Gradle.radikutils [:Test.main()].executor": "Run",
+    "Gradle.radikutils [:org.radikutils.BinaryConverterApp.main()].executor": "Run",
+    "Gradle.radikutils [:org.radikutils.Main.main()].executor": "Run",
+    "Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor": "Run",
+    "Gradle.radikutils [:org.radikutils.net.HTMLCatcher.main()].executor": "Run",
+    "Gradle.radikutils [:org.radikutils.net.HTMLCatcherV1.main()].executor": "Run",
+    "Repository.Attach.Annotations": "true",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/radik/LINUX/prog/RADIK/radikutils",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alesh\OneDrive\Рабочий стол\Алёшин Иван (2)\RADIK\radikutils\src\main\java\org\radikutils\plets" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HTMLCatcherV1">
+    <configuration name="HTMLCatcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.radikutils.net.HTMLCatcher" />
+      <module name="radikutils.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.radikutils.net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HTMLCatcherV1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.radikutils.net.HTMLCatcherV1" />
+      <module name="radikutils.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.radikutils.net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.radikutils.Main" />
       <module name="radikutils.main" />
@@ -127,6 +151,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HTMLCatcherV1" />
+        <item itemvalue="Application.HTMLCatcher" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -249,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750509308493</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix test">
+      <option name="closed" value="true" />
+      <created>1756445590820</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1756445590820</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

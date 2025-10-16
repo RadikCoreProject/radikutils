@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class StaticBases {
     private static final HashMap<String, Integer> ten2base = new HashMap<>();
 
-    static {
+    static { // записываем аннотации
         ten2base.put("A", 10);
         ten2base.put("B", 11);
         ten2base.put("C", 12);
@@ -35,50 +35,51 @@ public class StaticBases {
         ten2base.put("Y", 34);
         ten2base.put("Z", 35);
     }
-    protected static @NotNull String ten2base(long num, int base) {
+
+    public static @NotNull String ten2base(long num, int base) {
         if (num == 0) {
             return "0";
-        }
+        } // если число - 0 то возвращаем 0
 
-        StringBuilder result = new StringBuilder();
-        boolean isNegative = num < 0;
+        StringBuilder result = new StringBuilder(); // используем стринг билдер (изменение строки в цикле)
+        boolean isNegative = num < 0; // проверяем на отрицательность
         num = Math.abs(num);
 
         while (num > 0) {
-            long remainder = num % base;
-            result.append(remainder >= 10 ? (char) ('A' + remainder - 10) : remainder);
-            num /= base;
+            long r = num % base; // берем остаток от деления на основание
+            result.append(r >= 10 ? (char) ('A' + r - 10) : r); // если остаток больше 9, то берем букву с помощью char-a
+            num /= base; // делим число
         }
         if (isNegative) {
-            result.append('-');
+            result.append('-'); // если отрицательное добавляем минус
         }
 
-        return result.reverse().toString();
+        return result.reverse().toString(); // реверсируем строку (тк начинаем от меньших значений)
     }
 
-    protected static long base2ten(@NotNull String num, int base) {
+    public static long base2ten(@NotNull String num, int base) {
+        // если число - 0, то возвращаем 0
         if (num.equals("0")) {
             return 0;
         }
 
         long result = 0;
         boolean isNegative = false;
-        if (num.startsWith("-")) {
+        if (num.startsWith("-")) { // если число начинается с -, значит оно отрицательное
             isNegative = true;
             num = num.substring(1);
         }
         int len = num.length() - 1;
 
-        for (char i : num.toCharArray()) {
-            if (i == '-') continue;
+        for (char i : num.toCharArray()) { // проходимся по каждому символу
             try {
                 result += (int) (Integer.parseInt(String.valueOf(i)) * Math.pow(base, len--));
-            } catch (Exception e) {
-                result += (int) (ten2base.get(String.valueOf(i)) * Math.pow(base, len--));
+            } catch (Exception e) { // если это НЕ ЧИСЛО, (к примеру буквы для оснований больших 10)
+                result += (int) (ten2base.get(String.valueOf(i)) * Math.pow(base, len--)); // берем из списка аннотаций
             }
         }
         if (isNegative) {
-            result = -result;
+            result = -result; // делаем число отрицательным если надо
         }
         return result;
     }
