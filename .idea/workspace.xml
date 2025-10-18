@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/CatchText.java" afterDir="false" />
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="upgrade catcher">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/net/CatchText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/CatchText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/net/HTMLCatcherV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/HTMLCatcherV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Sesc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Sesc.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760631750068</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="upgrade catcher">
+      <option name="closed" value="true" />
+      <created>1760776974340</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1760776974340</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,7 +334,8 @@
     <MESSAGE value="fix test" />
     <MESSAGE value="add HTMLCatcher V1" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="upgrade catcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade catcher" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -343,6 +350,10 @@
           <line>24</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

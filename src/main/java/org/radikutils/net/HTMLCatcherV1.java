@@ -51,4 +51,21 @@ public class HTMLCatcherV1 {
 
         return answer;
     }
+
+    public static String getName(String url) {
+        String ans = "";
+        try {
+            Document doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36").timeout(10000).get();
+            Elements author = doc.select("div.author");
+            if (!author.isEmpty()) ans += String.format("%s | ", author.first().text());
+
+            ans += " ";
+
+            Elements title = doc.select("div.title");
+            if (!title.isEmpty()) ans += String.format("%s", title.first().text());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return ans;
+    }
 }
