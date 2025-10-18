@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="fix test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/HTMLCatcherV1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Sesc.java" afterDir="false" />
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/CatchText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/net/HTMLCatcherV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/HTMLCatcherV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Sesc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Sesc.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,67 +74,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.radikutils [:Sesc.main()].executor": "Run",
-    "Gradle.radikutils [:Test.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.BinaryConverterApp.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.Main.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.net.HTMLCatcher.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.net.HTMLCatcherV1.main()].executor": "Run",
-    "Repository.Attach.Annotations": "true",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/radik/LINUX/prog/RADIK/radikutils",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:Sesc.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.BinaryConverterApp.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.net.CatchText.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.net.HTMLCatcher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.net.HTMLCatcherV1.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/radik/LINUX/prog/RADIK/radikutils&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alesh\OneDrive\Рабочий стол\Алёшин Иван (2)\RADIK\radikutils\src\main\java\org\radikutils\plets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HTMLCatcherV1">
-    <configuration name="HTMLCatcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.radikutils.net.HTMLCatcher" />
-      <module name="radikutils.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.radikutils.net.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HTMLCatcherV1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.radikutils.net.HTMLCatcherV1" />
-      <module name="radikutils.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.radikutils.net.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.radikutils.Main" />
       <module name="radikutils.main" />
@@ -151,8 +125,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HTMLCatcherV1" />
-        <item itemvalue="Application.HTMLCatcher" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -283,7 +255,23 @@
       <option name="project" value="LOCAL" />
       <updated>1756445590820</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add HTMLCatcher V1">
+      <option name="closed" value="true" />
+      <created>1760631735327</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760631735327</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix">
+      <option name="closed" value="true" />
+      <created>1760631750068</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760631750068</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +326,9 @@
     <MESSAGE value="nit" />
     <MESSAGE value="bases" />
     <MESSAGE value="fix test" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix test" />
+    <MESSAGE value="add HTMLCatcher V1" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -347,6 +337,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/radikutils/Main.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

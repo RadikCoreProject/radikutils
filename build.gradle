@@ -20,7 +20,7 @@ repositories {
 dependencies {
     implementation 'org.knowm.xchart:xchart:3.8.0'
     implementation 'org.jetbrains:annotations:24.0.0'
-    implementation 'org.jsoup:jsoup:1.7.1'
+    implementation 'org.jsoup:jsoup:1.21.2'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

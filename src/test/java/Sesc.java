@@ -8,6 +8,11 @@ import static org.radikutils.numeric.StaticBases.ten2base;
 
 public class Sesc {
     public static void main(String[] args) {
-        System.out.println((Math.pow(2, 20) * 40 - 640 * 1536 * 8) / 640 / 640 / 400 * 8);
+        char[] chars = new char[]{'t', 'f'};
+        for (int i = 4; i < 240; i++) {
+            StringBuilder builder = new StringBuilder();
+            for (int j = 0; j <= i; j++) {
+            }
+        }
     }
 }
