@@ -1,72 +1,49 @@
 package org.radikutils;
 
-import org.radikutils.drawing.DrawingBase;
-import org.radikutils.numeric.Complex;
-import org.radikutils.plets.Duplet;
+import org.radikutils.drawing.BarDrawing;
+import org.radikutils.drawing.Dataset;
+import org.radikutils.parser.CSVParser;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
 
-import static org.radikutils.drawing.DrawingBase.*;
-import static org.radikutils.func.FFT.fft;
-import static org.radikutils.func.FFT.ifft;
+import static org.radikutils.parser.CSVParser.genDataset;
 
 public class Main {
-    private static final long DOTS = (long) Math.pow(2, 10);
-    private static final Duplet<Integer, Long> CENS = new Duplet<>(1, DOTS / 2);
-
     public static void main(String[] args) {
-        DrawingBase ch1 = new DrawingBase();
-        DrawingBase ch2 = new DrawingBase();
+        File file = new File("/home/radik/Загрузки/tips.csv");
+        CSVParser parser = new CSVParser(file);
+        parser.parse();
+        File file2 = new File("/home/radik/Загрузки/titanic.csv");
+        CSVParser parser2 = new CSVParser(file2);
+        parser2.parse();
+        Dataset<CSVParser> dataset = genDataset("day", "time");
+        BarDrawing<CSVParser> drawer = new BarDrawing<>("Задание 1", "Дни недели", "Количество гостей", parser, dataset);
+        drawer.draw();
 
-        ArrayList<Complex> input = new ArrayList<>();
+        Dataset<CSVParser> dataset1 = genDataset("size", "sex");
+        BarDrawing<CSVParser> drawer1 = new BarDrawing<>("Задание 2", "Количество мест за столом", "Количество гостей", parser, dataset1);
+        drawer1.draw();
 
-        for (int i = 0; i < DOTS; i++) {
-            double window = hanningWindow(i, (int) DOTS);
-//            input.add(new Complex(func(i) * window, 0));
-            input.add(new Complex(func(i), 0));
-        }
+        Dataset<CSVParser> dataset2 = genDataset("pclass", "sex");
+        BarDrawing<CSVParser> drawer2 = new BarDrawing<>("Задание 3", "Классы", "Количество людей", parser2, dataset2);
+        drawer2.draw();
 
-        ch1.setTitle("FFT Transform");
-        ch1.setLegend("X", "Y");
-        ch2.setTitle("FFT Transform");
-        ch2.setLegend("X", "Y");
+        Dataset<CSVParser> dataset3 = genDataset("deck", "sex");
+        BarDrawing<CSVParser> drawer3 = new BarDrawing<>("Задание 4", "Палубы", "Количество людей", parser2, dataset3);
+        drawer3.draw();
 
-        List<Complex> output = fft(input);
+        Dataset<CSVParser> dataset4 = genDataset("deck", "pclass", new CSVParser.Condition() {
+            @Override
+            public int cond(String val) {
+                return val.equals("1") ? 1 : 0;
+            }
 
-        ArrayList<Double> xData;
-        ArrayList<Double> yData;
-
-//        xData = new ArrayList<>();
-//        yData = new ArrayList<>();
-//        for (int i = CENS.getType(); i < CENS.getParametrize(); i++) {
-//            xData.add((double) i);
-//            yData.add(func(i));
-//        }
-//        ch1.custom(xData, yData, "y=sin(x)");
-//        ch1.runChart();
-
-        xData = new ArrayList<>();
-        yData = new ArrayList<>();
-        double maxAmplitude = 0;
-        for (int i = CENS.getType(); i < CENS.getParametrize(); i++) {
-            xData.add((double) i);
-            yData.add(output.get(i).getRe());
-            maxAmplitude = Math.max(maxAmplitude, output.get(i).abs());
-        }
-
-        for (int i = 0; i < yData.size(); i++) {
-            yData.set(i, yData.get(i) / maxAmplitude);
-        }
-        ch2.custom(xData, yData, "y=F(1 if i % 1000 > 900)");
-        ch2.runChart();
-    }
-
-    private static double func(double i) {
-        return i % 200;
-    }
-
-    public static double hanningWindow(int i, int DOTS) {
-        return 0.5 * (1 - Math.cos(2 * Math.PI * i / (DOTS - 1)));
+            @Override
+            public String type() {
+                return "survived";
+            }
+        });
+        BarDrawing<CSVParser> drawer4 = new BarDrawing<>("Задание 5", "Палубы", "Количество людей", parser2, dataset4);
+        drawer4.draw();
     }
 }
