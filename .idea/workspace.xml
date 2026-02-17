@@ -4,23 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="upgrade catcher">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/Dataset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/catcher/CatchText.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/catcher/Catcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Urfu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Urkop.java" afterDir="false" />
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="1.2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/ConditionOperator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/ConditionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/ParseType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/WrongModifierException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/func/FFT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/func/FFT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/net/CatchText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/net/catcher/ProzaCatcherV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/net/HTMLCatcherV1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/numeric/StaticBases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/Dataset.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Sesc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Sesc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
@@ -54,10 +49,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Exception" />
         <option value="Class" />
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Exception" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -109,6 +104,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -132,7 +128,7 @@
       <recent name="C:\Users\alesh\OneDrive\Рабочий стол\Алёшин Иван (2)\RADIK\radikutils\src\main\java\org\radikutils\plets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="BarChart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.radikutils.drawing.BarChart" />
       <module name="radikutils.main" />
@@ -179,8 +175,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="radikutils.test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.BarChart" />
         <item itemvalue="Application.Sesc" />
         <item itemvalue="Application.CatchText" />
@@ -346,7 +350,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763573260325</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="1.2">
+      <option name="closed" value="true" />
+      <created>1770395859656</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1770395859656</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +416,8 @@
     <MESSAGE value="add HTMLCatcher V1" />
     <MESSAGE value="fix" />
     <MESSAGE value="upgrade catcher" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrade catcher" />
+    <MESSAGE value="1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

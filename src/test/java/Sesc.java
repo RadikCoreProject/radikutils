@@ -1,48 +1,32 @@
 import org.radikutils.drawing.BarDrawing;
 import org.radikutils.drawing.Dataset;
 import org.radikutils.parser.CSVParser;
+import org.radikutils.parser.ConditionOperator;
 
 import java.io.File;
-import java.util.concurrent.locks.Condition;
-
-import static org.radikutils.parser.CSVParser.genDataset;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Sesc {
     public static void main(String[] args) {
-        File file = new File("/home/radik/Загрузки/tips.csv");
-        CSVParser parser = new CSVParser(file);
-        parser.parse();
-        File file2 = new File("/home/radik/Загрузки/titanic.csv");
-        CSVParser parser2 = new CSVParser(file2);
-        parser2.parse();
-        Dataset<CSVParser> dataset = genDataset("day", "time");
-        BarDrawing<CSVParser> drawer = new BarDrawing<>("Задание 1", "Дни недели", "Количество гостей", parser, dataset);
+        File file = new File("/home/radik/Загрузки/dataset_file_storage.csv");
+        CSVParser parser = new CSVParser(file, ";");
+        parser.parseList();
+        parser.parseMap();
+        parser.remove(ConditionOperator.OR, (headers, val) -> val[2].contains("/03/"));
+        System.out.println("Удалён март месяц");
+        parser.modify((headers, val) -> {
+            String t = val[2];
+            DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
+            return new String[]{val[0], val[1], dt.format(new Date(Long.parseLong(t) * 1000)), val[3], val[4], val[5]};
+        });
+        System.out.println("Дата модифицирована UNIX -> dd/MM/yyyy");
+        Dataset<CSVParser> dataset = CSVParser.genDataset("uploadServerUnixTime", "FileSize", "Дни");
+        BarDrawing<CSVParser> drawer = new BarDrawing<>("Задание 1", "Дни", "Вес файлов", parser, dataset, true);
         drawer.draw();
 
-        Dataset<CSVParser> dataset1 = genDataset("size", "sex");
-        BarDrawing<CSVParser> drawer1 = new BarDrawing<>("Задание 2", "Количество мест за столом", "Количество гостей", parser, dataset1);
-        drawer1.draw();
 
-        Dataset<CSVParser> dataset2 = genDataset("pclass", "sex");
-        BarDrawing<CSVParser> drawer2 = new BarDrawing<>("Задание 3", "Классы", "Количество людей", parser2, dataset2);
-        drawer2.draw();
-
-        Dataset<CSVParser> dataset3 = genDataset("deck", "sex");
-        BarDrawing<CSVParser> drawer3 = new BarDrawing<>("Задание 4", "Палуба", "Количество людей", parser2, dataset3);
-        drawer3.draw();
-
-        Dataset<CSVParser> dataset4 = genDataset("deck", "pclass", new CSVParser.Condition() {
-            @Override
-            public int cond(String val) {
-                return val.equals("1") ? 1 : 0;
-            }
-
-            @Override
-            public String type() {
-                return "survived";
-            }
-        });
-        BarDrawing<CSVParser> drawer4 = new BarDrawing<>("Задание 5", "Палуба", "Количество людей", parser2, dataset4);
-        drawer4.draw();
+//        parser.print(true);
     }
 }

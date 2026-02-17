@@ -1,6 +1,7 @@
 package org.radikutils.parser;
 
 public interface Parser {
-   boolean parse();
-   void print();
+   boolean parseMap();
+   boolean parseList();
+   void print(boolean list);
 }
