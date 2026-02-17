@@ -1,33 +1,22 @@
 package org.radikutils.plets;
 
-
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class Duplet<T, P> implements Nplet<T, P> {
 
-    private T t = null;
-    private P p = null;
+    private final T t;
+    private final P p;
 
-    public Duplet(@Nullable T type, @Nullable P parametrize) {
+    public Duplet(@NotNull T type, @NotNull P parametrize) {
         this.t = type;
         this.p = parametrize;
     }
 
-    public @Nullable T getType() {
+    public T getType() {
         return this.t;
     }
 
-    public @Nullable P getParametrize() {
+    public P getParametrize() {
         return this.p;
-    }
-
-    public boolean isEmpty() {
-        return this.t == null && this.p == null;
-    }
-
-    public void setDuplet(T type, P parametrize) {
-        this.t = type;
-        this.p = parametrize;
     }
 }

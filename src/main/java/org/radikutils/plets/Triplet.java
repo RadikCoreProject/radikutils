@@ -26,11 +26,6 @@ public class Triplet<T, P, C> implements Nplet<T, P> {
         return this.c;
     }
 
-    @Override
-    public boolean isEmpty() {
-        return this.t == null && this.c == null && this.p == null;
-    }
-
     public void setTriplet(T type, P parametrize, C count) {
         this.t = type;
         this.p = parametrize;

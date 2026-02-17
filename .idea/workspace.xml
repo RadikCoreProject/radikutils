@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="1.2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/ConditionOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/ConditionType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/ParseType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/WrongModifierException.java" afterDir="false" />
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="1.2.1&#10;Add removeMass, removeData, modifyMass, modifyData inner CSV methods">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/TimeSeriesDrawing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/Dataset.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/Dataset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Duplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Duplet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Nplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Nplet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Triplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Triplet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Sesc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Sesc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +46,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="Exception" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,7 +86,7 @@
     "Gradle.Download Sources.executor": "Run",
     "Gradle.radikutils [:Main.main()].executor": "Run",
     "Gradle.radikutils [:Sesc.main()].executor": "Run",
-    "Gradle.radikutils [:Test.main()].executor": "Run",
+    "Gradle.radikutils [:Test.main()].executor": "Debug",
     "Gradle.radikutils [:Urfu.main()].executor": "Run",
     "Gradle.radikutils [:Urkop.main()].executor": "Run",
     "Gradle.radikutils [:org.radikutils.BinaryConverterApp.main()].executor": "Run",
@@ -128,7 +125,7 @@
       <recent name="C:\Users\alesh\OneDrive\Рабочий стол\Алёшин Иван (2)\RADIK\radikutils\src\main\java\org\radikutils\plets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Sesc">
     <configuration name="BarChart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.radikutils.drawing.BarChart" />
       <module name="radikutils.main" />
@@ -358,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770395859656</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="1.2.1&#10;Add removeMass, removeData, modifyMass, modifyData inner CSV methods">
+      <option name="closed" value="true" />
+      <created>1771314199037</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1771314199037</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +422,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="upgrade catcher" />
     <MESSAGE value="1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.2" />
+    <MESSAGE value="1.2.1&#10;Add removeMass, removeData, modifyMass, modifyData inner CSV methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.2.1&#10;Add removeMass, removeData, modifyMass, modifyData inner CSV methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

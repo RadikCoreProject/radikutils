@@ -1,16 +1,21 @@
 package org.radikutils.parser;
 
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 import org.radikutils.drawing.Dataset;
+import org.radikutils.plets.Duplet;
 
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class CSVParser implements Parser {
     public final File file;
     public final String spliterator;
 
-    public HashMap<String, String[]> mass = new HashMap<>();
+    public Map<String, String[]> mass = new LinkedHashMap<>();
 
     public List<String> headers = new ArrayList<>();
     public ArrayList<String[]> data = new ArrayList<>();
@@ -74,54 +79,117 @@ public class CSVParser implements Parser {
         }
     }
 
-    public static Dataset<CSVParser> genDataset(String row, String column) {
+    public void sort(String column) {
+        int colIndex = headers.indexOf(column);
+        if (colIndex == -1) throw new IllegalArgumentException("Column not found: " + column);
+        if (data.isEmpty() || mass.isEmpty()) return;
+
+        List<Duplet<String, Integer>> pairs = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            String[] row = data.get(i);
+            String value = row[colIndex];
+            pairs.add(new Duplet<>(value, i));
+        }
+
+        pairs.sort(Comparator.comparing(Duplet::getType));
+        ArrayList<String[]> newData = new ArrayList<>();
+        for (Duplet<String, Integer> p : pairs) {
+            newData.add(data.get(p.getParametrize()));
+        }
+
+        Map<String, String[]> newMass = new LinkedHashMap<>();
+        for (Map.Entry<String, String[]> entry : mass.entrySet()) {
+            String colName = entry.getKey();
+            String[] oldCol = entry.getValue();
+            String[] newCol = new String[oldCol.length];
+            for (int newIdx = 0; newIdx < pairs.size(); newIdx++) {
+                int oldIdx = pairs.get(newIdx).getParametrize();
+                newCol[newIdx] = oldCol[oldIdx];
+            }
+            newMass.put(colName, newCol);
+        }
+
+        data = newData;
+        mass = newMass;
+    }
+
+    public static Dataset<CSVParser, DefaultCategoryDataset> genDataset(String row, String column) {
         return genDataset(row, column, val -> 1);
     }
 
-    public static Dataset<CSVParser> genDataset(String row, String column, DrawCondition condition) {
+    public static Dataset<CSVParser, DefaultCategoryDataset> genDataset(String row, String column, DrawCondition condition) {
+        return genDataset(row, column, condition, null, null);
+    }
+
+    public static Dataset<CSVParser, DefaultCategoryDataset> genDataset(String row, String column, String condition, CountingCondition condition1) {
+        return genDataset(row, column, val -> 1, t -> condition, condition1);
+    }
+
+    public static Dataset<CSVParser, DefaultCategoryDataset> genDataset(String row, String column, CountingCondition condition, String condition1) {
+        return genDataset(row, column, val -> 1, condition, t -> condition1);
+    }
+
+    public static Dataset<CSVParser, DefaultCategoryDataset> genDataset(String row, String column, CountingCondition condition, CountingCondition condition1) {
+        return genDataset(row, column, val -> 1, condition, condition1);
+    }
+
+    public static Dataset<CSVParser, DefaultCategoryDataset> genDataset(String row, String column, DrawCondition condition, CountingCondition condition1, CountingCondition condition2) {
         return parser1 -> {
             boolean c = condition.type() != null;
+            boolean n = condition2 != null;
+            boolean p = condition2 != null;
             DefaultCategoryDataset dataset1 = new DefaultCategoryDataset();
-            HashMap<String, String[]> mass = parser1.mass;
+            Map<String, String[]> mass = parser1.mass;
 
             String[] first = mass.get(column);
             String[] second = mass.get(row);
             String[] third = new String[first.length];
 
             if (c) third = mass.get(condition.type());
-            HashMap<String, HashMap<String, Integer>> parse = new HashMap<>();
+            Map<String, Map<String, Integer>> parse = new LinkedHashMap<>();
             for (int i = 0; i < first.length; i++) {
-                String d = second[i];
-                String t = first[i];
+                String d = n ? condition2.cond(second[i]) : second[i];
                 String th = third[i];
-                parse.computeIfAbsent(d, k -> new HashMap<>()).merge(t, condition.cond(th), Integer::sum);
+                String t = p ? condition1.cond(first[i]) : first[i];
+                parse.computeIfAbsent(d, k -> new LinkedHashMap<>()).merge(t, condition.cond(th), Integer::sum);
             }
 
-            parse.forEach((k, v) -> {
-                if (!k.isEmpty()) {
-                    v.forEach((k1, v1) -> dataset1.addValue(v1, k, k1));
+            List<String> sortedRowKeys = new ArrayList<>(parse.keySet());
+            Collections.sort(sortedRowKeys);
+            for (String rowKey : sortedRowKeys) {
+                Map<String, Integer> colMap = parse.get(rowKey);
+                List<String> sortedColKeys = new ArrayList<>(colMap.keySet());
+                Collections.sort(sortedColKeys);
+                for (String colKey : sortedColKeys) {
+                    dataset1.addValue(colMap.get(colKey), rowKey, colKey);
                 }
-            });
+            }
             return dataset1;
         };
     }
 
-    public static Dataset<CSVParser> genDataset(String row, String valueColumn, String n) {
+    public static Dataset<CSVParser, DefaultCategoryDataset> genDataset(String row, String column, DisplayCondition rowCond, DisplayCondition columnCond) {
         return parser -> {
-            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-            HashMap<String, String[]> mass = parser.mass;
+            String[] dates = parser.mass.get(row);
+            String[] values = parser.mass.get(column);
 
-            String[] first = mass.get(row);
-            String[] third = mass.get(valueColumn);
-            Map<String, Double> sums = new HashMap<>();
+            Map<String, Map<String, Double>> sumsByRow = new LinkedHashMap<>();
 
-            for (int i = 0; i < first.length; i++) {
-                String cat = first[i];
-                double val = Double.parseDouble(third[i]);
-                sums.merge(cat, val, Double::sum);
+            for (int i = 0; i < dates.length; i++) {
+                String date = dates[i];
+                double val = Double.parseDouble(values[i]);
+                String rowKey = rowCond.cond(date, val);
+                String colKey = columnCond.cond(date, val);
+
+                sumsByRow.computeIfAbsent(rowKey, k -> new LinkedHashMap<>()).merge(colKey, val, Double::sum);
             }
 
-            sums.forEach((date, sum) -> dataset.addValue(sum, n, date));
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            sumsByRow.forEach((rowName, colMap) ->
+                colMap.forEach((colName, sum) ->
+                    dataset.addValue(sum, rowName, colName)
+                )
+            );
 
             return dataset;
         };
@@ -129,16 +197,20 @@ public class CSVParser implements Parser {
 
     public void remove(ConditionOperator operator, RemoveCondition... modifiers) {
         ArrayList<String[]> newData = removeData(operator, modifiers);
-        HashMap<String, String[]> newMass = removeMass(operator, modifiers);
+        Map<String, String[]> newMass = removeMass(operator, modifiers);
         data = newData;
         mass = newMass;
     }
 
-    public HashMap<String, String[]> removeMass(ConditionOperator operator, RemoveCondition... modifiers) {
-        HashMap<String, String[]> newMass = new HashMap<>();
-        int rowCount = mass.values().iterator().next().length;
-        int colCount = mass.size();
-        List<String> keys = List.copyOf(mass.keySet());
+    public Map<String, String[]> removeMass(ConditionOperator operator, RemoveCondition... modifiers) {
+        if (mass.isEmpty()) return new LinkedHashMap<>();
+
+        List<String> keys = (headers != null && !headers.isEmpty())
+            ? new ArrayList<>(headers)
+            : new ArrayList<>(mass.keySet());
+
+        int rowCount = mass.get(keys.getFirst()).length;
+        int colCount = keys.size();
 
         boolean[] keep = new boolean[rowCount];
         for (int i = 0; i < rowCount; i++) {
@@ -152,6 +224,7 @@ public class CSVParser implements Parser {
         int keeps = 0;
         for (boolean b : keep) if (b) keeps++;
 
+        Map<String, String[]> newMass = new LinkedHashMap<>();
         int finalKeep = keeps;
         keys.forEach(colName -> {
             String[] newCol = new String[finalKeep];
@@ -198,7 +271,7 @@ public class CSVParser implements Parser {
 
     public void modify(ModifyCondition modifier) {
         ArrayList<String[]> newData = modifyData(modifier);
-        HashMap<String, String[]> newMass = modifyMass(modifier);
+        Map<String, String[]> newMass = modifyMass(modifier);
         data = newData;
         mass = newMass;
     }
@@ -212,8 +285,8 @@ public class CSVParser implements Parser {
         return newData;
     }
 
-    private HashMap<String, String[]> modifyMass(ModifyCondition modifier) {
-        if (mass.isEmpty()) return new HashMap<>();
+    private Map<String, String[]> modifyMass(ModifyCondition modifier) {
+        if (mass.isEmpty()) return new LinkedHashMap<>();
 
         List<String> keys = (headers != null && !headers.isEmpty())
             ? new ArrayList<>(headers)
@@ -230,17 +303,12 @@ public class CSVParser implements Parser {
             transformed[i] = modifier.cond(keys, row);
         }
 
-        HashMap<String, String[]> newMass = new HashMap<>();
+        Map<String, String[]> newMass = new LinkedHashMap<>();
         for (int j = 0; j < c; j++) {
             String colName = keys.get(j);
             String[] colValues = new String[r];
             for (int i = 0; i < r; i++) colValues[i] = transformed[i][j];
             newMass.put(colName, colValues);
-        }
-
-        if (headers != null && !headers.isEmpty()) {
-            headers.clear();
-            headers.addAll(keys);
         }
 
         return newMass;
@@ -263,10 +331,47 @@ public class CSVParser implements Parser {
         }
     }
 
+    public static Dataset<CSVParser, XYSeriesCollection> genTimeDataset(String dateColumn, String valueColumn, DisplayCondition condition) {
+        return genTimeDataset(dateColumn, valueColumn, s -> s, condition);
+    }
+
+    public static Dataset<CSVParser, XYSeriesCollection> genTimeDataset(String dateColumn, String valueColumn, CountingCondition cou, DisplayCondition condition) {
+        return parser -> {
+            String[] dates = parser.mass.get(dateColumn);
+            String[] values = parser.mass.get(valueColumn);
+
+            Map<String, Map<String, Double>> dataByCategory = new LinkedHashMap<>();
+
+            for (int i = 0; i < dates.length; i++) {
+                String date = dates[i];
+                double val = Double.parseDouble(values[i]);
+                dataByCategory.computeIfAbsent(condition.cond(date, val), k -> new LinkedHashMap<>()).merge(cou.cond(date), val, Double::sum);
+            }
+
+            XYSeriesCollection dataset = new XYSeriesCollection();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+            for (Map.Entry<String, Map<String, Double>> entry : dataByCategory.entrySet()) {
+                String categoryName = entry.getKey();
+                Map<String, Double> sumsByDate = entry.getValue();
+
+                XYSeries series = new XYSeries(categoryName);
+                sumsByDate.forEach((dateStr, sum) -> {
+                    try {
+                        long millis = sdf.parse(dateStr).getTime();
+                        series.add(millis, sum);
+                    } catch (ParseException ignored) {}
+                });
+
+                dataset.addSeries(series);
+            }
+            return dataset;
+        };
+    }
+
     @FunctionalInterface
     public interface DrawCondition {
         int cond(String val);
-        default int sum(int a) {return a + 1;}
         default String type() {return null;}
     }
 
@@ -278,5 +383,15 @@ public class CSVParser implements Parser {
     @FunctionalInterface
     public interface ModifyCondition {
         String[] cond(List<String> headers, String[] val);
+    }
+
+    @FunctionalInterface
+    public interface DisplayCondition {
+        String cond(String name, double sum);
+    }
+
+    @FunctionalInterface
+    public interface CountingCondition {
+        String cond(String name);
     }
 }

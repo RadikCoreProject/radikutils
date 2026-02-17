@@ -16,15 +16,15 @@ import org.radikutils.parser.Parser;
 
 import java.awt.*;
 
-public class BarDrawing<T extends Parser> extends ApplicationFrame {
+public class BarDrawing<T extends Parser, P extends CategoryDataset> extends ApplicationFrame {
     public final String title;
     public final String category;
     public final String value;
     public final T parser;
-    public final Dataset<T> dataset;
+    public final Dataset<T, P> dataset;
     public final boolean logarithmic;
 
-    public BarDrawing(String title, String c, String v, T parser, Dataset<T> dataset, boolean logarithmic) {
+    public BarDrawing(String title, String c, String v, T parser, Dataset<T, P> dataset, boolean logarithmic) {
         super(title);
         this.title = title;
         this.category = c;
@@ -36,6 +36,16 @@ public class BarDrawing<T extends Parser> extends ApplicationFrame {
 
     public void draw() {
         JFreeChart chart = createChart(dataset.run(parser), title, category, value);
+        ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel.setPreferredSize(new Dimension(480, 320));
+        setContentPane(chartPanel);
+        pack();
+        RefineryUtilities.centerFrameOnScreen(this);
+        setVisible(true);
+    }
+
+    public void draw(CategoryDataset dataset) {
+        JFreeChart chart = createChart(dataset, title, category, value);
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new Dimension(480, 320));
         setContentPane(chartPanel);
