@@ -1,13 +1,11 @@
 package org.radikutils.plets;
 
-import org.jetbrains.annotations.NotNull;
-
 public class Duplet<T, P> implements Nplet<T, P> {
 
     private final T t;
     private final P p;
 
-    public Duplet(@NotNull T type, @NotNull P parametrize) {
+    public Duplet(T type, P parametrize) {
         this.t = type;
         this.p = parametrize;
     }

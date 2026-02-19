@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="1.2.1&#10;Add removeMass, removeData, modifyMass, modifyData inner CSV methods">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/TimeSeriesDrawing.java" afterDir="false" />
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="1.2.2&#10;Add dataset for XYSeriesCollection and render class for it">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Easy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/BoxPlotTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/Dataset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Duplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Duplet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Nplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Nplet.java" afterDir="false" />
@@ -79,53 +80,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Gradle.Build radikutils.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.radikutils [:Main.main()].executor": "Run",
-    "Gradle.radikutils [:Sesc.main()].executor": "Run",
-    "Gradle.radikutils [:Test.main()].executor": "Debug",
-    "Gradle.radikutils [:Urfu.main()].executor": "Run",
-    "Gradle.radikutils [:Urkop.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.BinaryConverterApp.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.Main.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.drawing.BarChart.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.net.CatchText.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.net.HTMLCatcher.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.net.HTMLCatcherV1.main()].executor": "Run",
-    "Gradle.radikutils [:org.radikutils.net.catcher.CatchText.main()].executor": "Run",
-    "Repository.Attach.Annotations": "true",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/radik/Загрузки",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "terminal",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Gradle.Build radikutils.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:BoxPlotTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:Sesc.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:Test.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.radikutils [:Urfu.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:Urkop.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.BinaryConverterApp.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.drawing.BarChart.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.drawing.Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.net.CatchText.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.net.HTMLCatcher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.net.HTMLCatcherV1.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.radikutils [:org.radikutils.net.catcher.CatchText.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/radik/Загрузки&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/alesh/OneDrive/Рабочий стол/Алёшин Иван (2)/RADIK/radikutils/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alesh\OneDrive\Рабочий стол\Алёшин Иван (2)\RADIK\radikutils\src\main\java\org\radikutils\plets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Sesc">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="BarChart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.radikutils.drawing.BarChart" />
       <module name="radikutils.main" />
@@ -139,15 +141,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CatchText" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.radikutils.net.catcher.CatchText" />
-      <module name="radikutils.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.radikutils.net.catcher.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="BoxPlotTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="BoxPlotTest" />
+      <module name="radikutils.test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -181,11 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.BoxPlotTest" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.BarChart" />
         <item itemvalue="Application.Sesc" />
-        <item itemvalue="Application.CatchText" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -363,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771314199037</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="1.2.2&#10;Add dataset for XYSeriesCollection and render class for it">
+      <option name="closed" value="true" />
+      <created>1771347762205</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1771347762205</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +427,8 @@
     <MESSAGE value="upgrade catcher" />
     <MESSAGE value="1.2" />
     <MESSAGE value="1.2.1&#10;Add removeMass, removeData, modifyMass, modifyData inner CSV methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.2.1&#10;Add removeMass, removeData, modifyMass, modifyData inner CSV methods" />
+    <MESSAGE value="1.2.2&#10;Add dataset for XYSeriesCollection and render class for it" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.2.2&#10;Add dataset for XYSeriesCollection and render class for it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -9,7 +9,9 @@ import org.jfree.chart.axis.LogarithmicAxis;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BoxAndWhiskerRenderer;
 import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.statistics.BoxAndWhiskerCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import org.radikutils.parser.Parser;
@@ -35,7 +37,13 @@ public class BarDrawing<T extends Parser, P extends CategoryDataset> extends App
     }
 
     public void draw() {
-        JFreeChart chart = createChart(dataset.run(parser), title, category, value);
+        P ds = dataset.run(parser);
+        JFreeChart chart;
+        if (ds instanceof BoxAndWhiskerCategoryDataset) {
+            chart = createBoxChart((BoxAndWhiskerCategoryDataset) ds, title, category, value);
+        } else {
+            chart = createBarChart(ds, title, category, value);
+        }
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new Dimension(480, 320));
         setContentPane(chartPanel);
@@ -45,7 +53,7 @@ public class BarDrawing<T extends Parser, P extends CategoryDataset> extends App
     }
 
     public void draw(CategoryDataset dataset) {
-        JFreeChart chart = createChart(dataset, title, category, value);
+        JFreeChart chart = createBarChart(dataset, title, category, value);
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new Dimension(480, 320));
         setContentPane(chartPanel);
@@ -54,20 +62,9 @@ public class BarDrawing<T extends Parser, P extends CategoryDataset> extends App
         setVisible(true);
     }
 
-    public JFreeChart createChart(CategoryDataset dataset, String title, String c, String v) {
-        final JFreeChart chart = ChartFactory.createBarChart(
-            title,
-            c,
-            v,
-            dataset,
-            PlotOrientation.VERTICAL,
-            true,
-            true,
-            false
-        );
-
+    private JFreeChart createBarChart(CategoryDataset dataset, String title, String c, String v) {
+        final JFreeChart chart = ChartFactory.createBarChart(title, c, v, dataset, PlotOrientation.VERTICAL, true, true, false);
         chart.setBackgroundPaint(Color.white);
-
         CategoryPlot plot = chart.getCategoryPlot();
 
         if (logarithmic) {
@@ -84,10 +81,32 @@ public class BarDrawing<T extends Parser, P extends CategoryDataset> extends App
         plot.setDomainGridlinePaint(Color.white);
         plot.setRangeGridlinePaint(Color.white);
 
+        CategoryAxis axis_d = plot.getDomainAxis();
+        axis_d.setCategoryLabelPositions(CategoryLabelPositions.UP_45);
+        return chart;
+    }
+
+    private JFreeChart createBoxChart(BoxAndWhiskerCategoryDataset dataset, String title, String c, String v) {
+        final JFreeChart chart = ChartFactory.createBoxAndWhiskerChart(title, c, v, dataset, true);
+        chart.setBackgroundPaint(Color.white);
+        CategoryPlot plot = chart.getCategoryPlot();
+
+        BoxAndWhiskerRenderer renderer = new BoxAndWhiskerRenderer();
+        renderer.setMeanVisible(false);
+        plot.setRenderer(renderer);
+
+        plot.setBackgroundPaint(new Color(212, 212, 248));
+        plot.setDomainGridlinePaint(Color.white);
+        plot.setRangeGridlinePaint(Color.white);
 
         CategoryAxis axis_d = plot.getDomainAxis();
         axis_d.setCategoryLabelPositions(CategoryLabelPositions.UP_45);
 
+        if (logarithmic) {
+            LogarithmicAxis logAxis = new LogarithmicAxis(v);
+            logAxis.setAllowNegativesFlag(true);
+            plot.setRangeAxis(logAxis);
+        }
         return chart;
     }
 }

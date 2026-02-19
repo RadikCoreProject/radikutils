@@ -1,5 +1,5 @@
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.xy.IntervalXYDataset;
+import org.jfree.data.statistics.BoxAndWhiskerCategoryDataset;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.radikutils.drawing.BarDrawing;
 import org.radikutils.drawing.Dataset;
@@ -13,21 +13,25 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 public class Sesc {
     public static void main(String[] args) {
         File file = new File("/home/radik/Загрузки/dataset_file_storage.csv");
         CSVParser parser = new CSVParser(file, ";");
         n0(parser);
-//        sleep(2000);
-//        n1(parser);
-//        sleep(2000);
-//        n2(parser);
-//        sleep(2000);
-//        n3(parser);
+        sleep(2000);
+        n1(parser);
+        sleep(2000);
+        n2(parser);
+        sleep(2000);
+        n3(parser);
         n4(parser);
-//        n5(parser);
+        n5(parser);
+        n6(parser);
+        n7(parser);
+        n8(parser);
+        n9(parser);
+        n10(parser);
     }
 
     private static void n0(CSVParser parser) {
@@ -50,7 +54,7 @@ public class Sesc {
             String[] t = s.split("/");
             return t[1] + "/" + t[2].split(" ")[0];
         });
-        TimeSeriesDrawing<CSVParser, XYSeriesCollection> drawer = new TimeSeriesDrawing<>("Задание 1.1", "Дата", "Вес файлов", parser, dataset, true);
+        TimeSeriesDrawing<CSVParser, XYSeriesCollection> drawer = new TimeSeriesDrawing<>("Задание 1.1 (объём файлов по дням)", "Дата", "Вес файлов", parser, dataset, true);
         drawer.draw();
         System.out.println("График #1 нарисован успешно");
     }
@@ -68,15 +72,8 @@ public class Sesc {
             set.addValue(values[i], "Накопленный объём", months[i]);
         }
         Dataset<CSVParser, DefaultCategoryDataset> dataset = parser1 -> set;
-        BarDrawing<CSVParser, DefaultCategoryDataset> drawer1 = new BarDrawing<>(
-            "Задание 1.3",
-            "Месяц",
-            "Объём",
-            parser,
-            dataset,
-            true
-        );
-        drawer1.draw();
+        BarDrawing<CSVParser, DefaultCategoryDataset> drawer = new BarDrawing<>("Задание 1.3 (вес файлов по месяцам с учетом прогноза)", "Месяц", "Объём", parser, dataset, true);
+        drawer.draw();
         System.out.println("График #2 нарисован успешно");
     }
 
@@ -95,7 +92,7 @@ public class Sesc {
                 return "0. Неизвестно";
             }
         });
-        BarDrawing<CSVParser, DefaultCategoryDataset> drawer = new BarDrawing<>("Задание 2", "День недели", "Количество файлов", parser, dataset, false);
+        BarDrawing<CSVParser, DefaultCategoryDataset> drawer = new BarDrawing<>("Задание 2 (количество файлов по дням недели)", "День недели", "Количество файлов", parser, dataset, false);
         drawer.draw();
         System.out.println("График #3 нарисован успешно");
     }
@@ -107,19 +104,45 @@ public class Sesc {
             String hour = timePart.split(":")[0];
             return hour.length() == 1 ? "0" + hour : hour;
         });
-        BarDrawing<CSVParser, DefaultCategoryDataset> drawer = new BarDrawing<>("Задание 2", "Часы", "Количество файлов", parser, dataset, false);
+        BarDrawing<CSVParser, DefaultCategoryDataset> drawer = new BarDrawing<>("Задание 2 (количество файлов по часам)", "Часы", "Количество файлов", parser, dataset, false);
         drawer.draw();
-        System.out.println("График #3 нарисован успешно");
+        System.out.println("График #4 нарисован успешно");
     }
 
     private static void n6(CSVParser parser) {
-
+        Dataset<CSVParser, DefaultCategoryDataset> dataset = CSVParser.genDataset("TypeDocs", "TypeDocs");
+        BarDrawing<CSVParser, DefaultCategoryDataset> drawer = new BarDrawing<>("Задание 3 (гистограмма, количество файлов по разделам)", "Раздел", "Количество файлов", parser, dataset, false);
+        drawer.draw();
+        System.out.println("График #5 нарисован успешно");
     }
 
     private static void n7(CSVParser parser) {
-
+        Dataset<CSVParser, BoxAndWhiskerCategoryDataset> boxDataset = CSVParser.genBoxDataset("TypeDocs", null, "FileSize", false);
+        BarDrawing<CSVParser, BoxAndWhiskerCategoryDataset> drawer = new BarDrawing<>("Задание 3 (ящики с усами, количество файлов по разделам)", "Раздел", "Вес файлов", parser, boxDataset, true);
+        drawer.draw();
+        System.out.println("График #6 нарисован успешно");
     }
 
+    private static void n8(CSVParser parser) {
+        Dataset<CSVParser, DefaultCategoryDataset> dataset = CSVParser.genDataset("ProjectID", "ProjectID", s -> "", s -> s);
+        BarDrawing<CSVParser, DefaultCategoryDataset> drawer = new BarDrawing<>("Задание 4 (объём файлов по проектам)", "Номер проекта", "Количество файлов", parser, dataset, false);
+        drawer.draw();
+        System.out.println("График #7 нарисован успешно");
+    }
+
+    private static void n9(CSVParser parser) {
+        Dataset<CSVParser, BoxAndWhiskerCategoryDataset> boxDataset = CSVParser.genBoxDataset("CompanyID", null, "FileSize", false);
+        BarDrawing<CSVParser, BoxAndWhiskerCategoryDataset> drawer = new BarDrawing<>("Задание 5 (ящики с усами по компаниям)", "Номер компании", "Вес файлов", parser, boxDataset, true);
+        drawer.draw();
+        System.out.println("График #8 нарисован успешно");
+    }
+
+    private static void n10(CSVParser parser) {
+        Dataset<CSVParser, DefaultCategoryDataset> dataset = CSVParser.genDataset("uploadServerUnixTime", "FileSize", s -> "", s -> s.split("/", 2)[1].split(" ")[0]);
+        BarDrawing<CSVParser, DefaultCategoryDataset> drawer = new BarDrawing<>("Задание 6 (дополнительный график)", "Месяц", "Объём", parser, dataset, false);
+        drawer.draw();
+        System.out.println("График #9 нарисован успешно");
+    }
 
     public static void sleep(long millis) {
         try {

@@ -1,6 +1,9 @@
 package org.radikutils.parser;
 
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.statistics.BoxAndWhiskerCategoryDataset;
+import org.jfree.data.statistics.BoxAndWhiskerItem;
+import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.radikutils.drawing.Dataset;
@@ -193,6 +196,82 @@ public class CSVParser implements Parser {
 
             return dataset;
         };
+    }
+
+    public static Dataset<CSVParser, BoxAndWhiskerCategoryDataset> genBoxDataset(
+        String category,
+        String group,
+        String val,
+        boolean sumValues
+    ) {
+        return parser -> {
+            String[] categories = parser.mass.get(category);
+            String[] groups = group != null ? parser.mass.get(group) : null;
+            String[] values = val != null ? parser.mass.get(val) : null;
+
+            Map<String, List<Double>> data = new LinkedHashMap<>();
+
+            if (group == null) {
+                if (val == null)
+                    throw new IllegalArgumentException("val must be provided when group is null");
+                for (int i = 0; i < categories.length; i++) {
+                    String cat = categories[i];
+                    double value = Double.parseDouble(values[i]);
+                    data.computeIfAbsent(cat, k -> new ArrayList<>()).add(value);
+                }
+            } else {
+                Map<String, Map<String, Double>> aggregated = new HashMap<>();
+                for (int i = 0; i < categories.length; i++) {
+                    String cat = categories[i];
+                    String grp = groups[i];
+                    double add = val != null && sumValues ? Double.parseDouble(values[i]) : 1.0;
+                    aggregated.computeIfAbsent(cat, k -> new HashMap<>()).merge(grp, add, Double::sum);
+                }
+                for (Map.Entry<String, Map<String, Double>> entry : aggregated.entrySet()) {
+                    String cat = entry.getKey();
+                    Collection<Double> vals = entry.getValue().values();
+                    data.put(cat, new ArrayList<>(vals));
+                }
+            }
+
+            DefaultBoxAndWhiskerCategoryDataset dataset = new DefaultBoxAndWhiskerCategoryDataset();
+            for (Map.Entry<String, List<Double>> entry : data.entrySet()) {
+                String c = entry.getKey();
+                List<Double> list = entry.getValue();
+                double[] array = list.stream().mapToDouble(Double::doubleValue).toArray();
+                BoxAndWhiskerItem item = createItem(array);
+                dataset.add(item, "Распределение", c);
+            }
+            return dataset;
+        };
+    }
+
+    private static BoxAndWhiskerItem createItem(double[] values) {
+        if (values.length == 0) {
+            return new BoxAndWhiskerItem(0,0,0,0,0,0,0,0, new ArrayList<>());
+        }
+        Arrays.sort(values);
+        double mean = Arrays.stream(values).average().getAsDouble();
+        double median = values[values.length / 2];
+        double q1 = values[values.length / 4];
+        double q3 = values[values.length * 3 / 4];
+        double min = values[0];
+        double max = values[values.length - 1];
+        double iqr = q3 - q1;
+        double lowerBound = q1 - 1.5 * iqr;
+        double upperBound = q3 + 1.5 * iqr;
+
+        List<Double> outliers = new ArrayList<>();
+        double minRegular = min;
+        double maxRegular = max;
+        for (double v : values) {
+            if (v < lowerBound || v > upperBound) outliers.add(v);
+        }
+        for (double v : values) {
+            if (v >= lowerBound && v < minRegular) minRegular = v;
+            if (v <= upperBound && v > maxRegular) maxRegular = v;
+        }
+        return new BoxAndWhiskerItem(mean, median, q1, q3, minRegular, maxRegular, min, max, outliers);
     }
 
     public void remove(ConditionOperator operator, RemoveCondition... modifiers) {
