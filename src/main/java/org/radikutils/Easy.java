@@ -3,12 +3,12 @@ package org.radikutils;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.radikutils.drawing.BarDrawing;
 import org.radikutils.drawing.Dataset;
-import org.radikutils.parser.CSVParser;
+import org.radikutils.parser.csv.CSVParser;
 
 import java.io.File;
 import java.net.URISyntaxException;
 
-import static org.radikutils.parser.CSVParser.genDataset;
+import static org.radikutils.parser.csv.CSVDatasetGenerator.*;
 
 public class Easy {
     public static void main(String[] args) throws URISyntaxException {

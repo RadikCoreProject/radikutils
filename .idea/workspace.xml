@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="1.2.2&#10;Add dataset for XYSeriesCollection and render class for it">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Easy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/BoxPlotTest.java" afterDir="false" />
+    <list default="true" id="3dbb873f-8c0a-4223-8d3a-2da37a0371d5" name="Changes" comment="1.2.3&#10;fix">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/csv/CSVDatasetGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/Easy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Easy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/drawing/BarDrawing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Duplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Duplet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Nplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Nplet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Triplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/plets/Triplet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/CSVParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/csv/CSVParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radikutils/parser/ConditionType.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Sesc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Sesc.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -367,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771347762205</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="1.2.3&#10;Add boxplot and gen datasets for it.">
+      <option name="closed" value="true" />
+      <created>1771517826834</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1771517826834</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +433,9 @@
     <MESSAGE value="1.2" />
     <MESSAGE value="1.2.1&#10;Add removeMass, removeData, modifyMass, modifyData inner CSV methods" />
     <MESSAGE value="1.2.2&#10;Add dataset for XYSeriesCollection and render class for it" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.2.2&#10;Add dataset for XYSeriesCollection and render class for it" />
+    <MESSAGE value="1.2.3&#10;Add boxplot and gen datasets for it." />
+    <MESSAGE value="1.2.3&#10;fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.2.3&#10;fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
